@@ -1,0 +1,14 @@
+<h1>Restaurant#show</h1>
+
+<h1><%= @restaurant.name %></h1>
+<p>Address: <%= @restaurant.address %></p><br>
+<p>Phone number: <%= @restaurant.phone_number %></p><br>
+<p>Food type: <%= @restaurant.category %></p>
+<%= link_to "See Reviews", restaurant_reviews_path(@restaurant), class: "btn button-primary" %><br>
+<%= link_to "Add Review", new_restaurant_review_path(@restaurant) %><br>
+<%= link_to "Back", restaurants_path %>
+
+<h2>Reviews</h2>
+<% @restaurant.reviews.reverse.each do |review| %>
+<p><%= review.content %> Rating - <%= review.rating %><br></p>
+<% end %>
